@@ -79,8 +79,14 @@ for (i in 1:nrow(df))
 }
 
 # Set virtual environment if necessary
-# virtualenv_install(envname  = "/home/heeringa/python_envs/r-reticulate", packages = "lingpy")
+virtualenv_create("lingpy_env")
+Sys.unsetenv("RETICULATE_PYTHON")
+use_virtualenv("lingpy_env", required = TRUE)
 
+# Install lingpy
+py_install("lingpy")
+
+# Load packages
 lingpy   <- import("lingpy")
 builtins <- import_builtins()
 

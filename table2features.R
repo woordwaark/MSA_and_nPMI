@@ -78,7 +78,7 @@ for (i in 1:nrow(df))
     df[i,1] <- df[i-1,1]
 }
 
-# Set virtual environment if necessary
+# Set virtual environment
 virtualenv_create("lingpy_env")
 Sys.unsetenv("RETICULATE_PYTHON")
 use_virtualenv("lingpy_env", required = TRUE)
